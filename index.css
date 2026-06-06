@@ -1,0 +1,194 @@
+/* Modern Dark Theme Design System for AI Job Matcher */
+
+:root {
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Harmonious, Tailored Dark Palette */
+  --bg-main: #090d16;
+  --bg-card: rgba(17, 25, 40, 0.75);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.5);
+  
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  /* Brand Accents */
+  --color-indigo: #6366f1;
+  --color-violet: #8b5cf6;
+  --color-emerald: #10b981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.15);
+  --color-rose: #f43f5e;
+  --color-rose-glow: rgba(244, 63, 94, 0.15);
+  --color-amber: #f59e0b;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(17, 25, 40, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Glowing Form Controls */
+.glass-input {
+  background: rgba(9, 13, 22, 0.6);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-input::placeholder {
+  color: var(--text-muted);
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--color-indigo);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+  background: rgba(9, 13, 22, 0.85);
+}
+
+/* Ambient Backdrop Glows */
+.glow-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-indigo {
+  background: radial-gradient(circle, var(--color-indigo) 0%, transparent 70%);
+}
+
+.glow-violet {
+  background: radial-gradient(circle, var(--color-violet) 0%, transparent 70%);
+}
+
+.glow-emerald {
+  background: radial-gradient(circle, var(--color-emerald) 0%, transparent 70%);
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseBorder {
+  0%, 100% {
+    border-color: var(--border-glass);
+  }
+  50% {
+    border-color: rgba(99, 102, 241, 0.4);
+  }
+}
+
+.pulse-border-loading {
+  animation: pulseBorder 2s infinite ease-in-out;
+}
+
+/* Circular Gauge Animation */
+@keyframes drawProgress {
+  from {
+    stroke-dashoffset: 283;
+  }
+  to {
+    stroke-dashoffset: var(--dashoffset);
+  }
+}
+
+.circular-gauge-path {
+  stroke-dasharray: 283;
+  animation: drawProgress 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Glowing badges */
+.badge-glow-success {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
+}
+
+.badge-glow-warning {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+}
+
+.badge-glow-error {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  color: #f87171;
+  text-shadow: 0 0 10px rgba(248, 113, 113, 0.2);
+}
+
+/* Skeleton Loading styles */
+.skeleton-pulse {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: loadingPulse 1.5s infinite;
+}
+
+@keyframes loadingPulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

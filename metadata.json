@@ -1,0 +1,5 @@
+{
+  "name": "AI Job Matcher",
+  "description": "An AI-powered career job matching system that automatically extracts skills from resumes and compares them with job descriptions to calculate a similarity score. The platform displays match percentages and ranks suitable jobs, helping users identify the best opportunities.",
+  "requestFramePermissions": []
+}
